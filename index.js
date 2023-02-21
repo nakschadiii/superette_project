@@ -21,7 +21,6 @@ db.sequelize = sequelize;
 db.produits = require('./models/produit.js')(sequelize, Sequelize);
 db.clients = require('./models/produit.js')(sequelize, Sequelize);
 
-// Middleware
 app.use(bodyParser.json());
 app.use(cors());
 
