@@ -16,15 +16,24 @@
       socket.on('products', (data) => {
         var html = "";
         (JSON.parse(data)).forEach(element => {
-          let card = document.createElement("div"); card.classList.add("card");
-          let image = document.createElement("img"); image.src = element.image; card.appendChild(image);
-          let titre = document.createElement("h2"); titre.textContent = element.titre; card.appendChild(titre);
-          let prix = document.createElement("p"); prix.textContent = "Prix: " + element.prix + " $"; card.appendChild(prix);
-          html += card.innerHTML;
+          console.log(element);
+          var card = '<div class="card"> <div class="card-image"> <img src="'+element.image+'" alt="Image"> </div> <div class="card-body"> <h5 class="card-title">'+element.titre+" - "+ element.prix + " $"+'</h5> <p class="card-text">'+element.description+'</p> <a href="#" class="btn btn-primary">Voir plus</a> </div> <div class="card-actions"> <a href="#" class="card-link">Lien</a> <a href="#" class="card-link">Autre lien</a> </div> </div>'
+          html += card;
         });
         container.innerHTML = html;
       });
     });
     </script>
+    <style>
+      .card { display: flex; flex-direction: column; border-radius: 4px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); overflow: hidden; margin: 20px; }
+      .card-image { position: relative; }
+      .card-image img { width: 100%; height: auto; display: block; object-fit: cover; }
+      .card-body { padding: 20px; display: flex; flex-direction: column; justify-content: space-between; background-color: #fff; }
+      .card-title { margin: 0; font-size: 24px; font-weight: bold; }
+      .card-text { margin: 20px 0 0 0; font-size: 16px; line-height: 1.5; }
+      .btn { display: inline-block; padding: 8px 16px; background-color: #007bff; color: #fff; font-size: 16px; text-align: center; border: none; border-radius: 4px; cursor: pointer; }
+      .card-actions { display: flex; justify-content: space-between; padding: 20px; background-color: #f8f9fa; }
+      .card-link { color: #007bff; text-decoration: none; font-size: 16px; }
+    </style>
   </body>
 </html>
