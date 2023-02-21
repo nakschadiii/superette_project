@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Connexion</title>
+  </head>
+  <body>
+    <h1>Connexion</h1>
+    <form id="my-form" method="POST" action="/connexion" name="login">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <br>
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <input type="submit" value="Se connecter">
+    </form>
+  </body>
+</html>
+<!-- <script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    const form = document.getElementById("my-form");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Get the form data
+        const formData = new FormData(form);
+        console.log(formData, document.forms['login']);
+
+        // Emit the form data using Socket.IO
+        socket.emit("log", document.forms['login']);
+    });
+</script> -->
